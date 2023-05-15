@@ -1,23 +1,22 @@
 //API
-// https://api.escuelajs.co/api/v1/
-async function fetchAPI (urlAPI){
-    const response = await fetch(urlAPI)
-    console.log(response)
-    const result = await response.json()
-    console.log(result)
-    return result
+const API = "https://api.escuelajs.co/api/v1"
+
+function fetchAPI(url){
+    return fetch(url)
 }
 
-const categoriesName = async(urlAPI)=>{
-    try{
-        const categories = await fetchAPI(`${urlAPI}categories`)
-        console.log(categories)
-        const categorie1 = await fetchAPI(`${urlAPI}categories/${categories[0].id}`)
-        console.log(categorie1)
-    } catch(error){
-        return console.error(error)
-    }
-}
+fetchAPI(`${API}/categories`)
+    .then(Response => Response.json())
+    .then(response => {for(obj of response){
+        CAT.push(obj.name)
+    }})
+    .catch(error => console.log(error))
+
+// OBJ Principal
+
+const CAT = []
+console.log(CAT)
+
 //Header
 const header = document.querySelector('.header')
 
