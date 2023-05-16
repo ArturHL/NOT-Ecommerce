@@ -3,4 +3,40 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: var(--white-color);
+}
+body{
+    background-color: var(--background-color);
+}
+/* Variables */
+:root{
+    --background-color: #094f6e;
+    --main-color: #96c7d5;
+    --black-color: #022534;
+    --medium-color: #2d7a9c;
+    --white-color: #e4f5ff;
+    --titles: 20px;
+    --sub-titles: 15px;
+    --font: 12px;
+}
+
+/* Header */
+
+header{
+    display:  flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--black-color);
+}
+header div{
+    display: flex;
+}
+header div div{
+    margin: 5px;
+}
+
+/* NAV CAT */
+.categories{
+    height: 20px;
 }
