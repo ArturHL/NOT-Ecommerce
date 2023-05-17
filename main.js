@@ -81,14 +81,12 @@ header.appendChild(logIN)
 
 // NAV CAT
 const navCAT = document.querySelector('.categories')
-
-// const newCategory = async()=>{
-
-//     const  = await 
-//         const newCategory = document.createElement('div')
-//             newCategory.innerText = obj.name
-//         navCAT.appendChild(newCategory)
-//         console.log('funcion llamada')
-// }
-
-// La funcion no funciona porque deberia de ser async debido a que el servidor no responde inmediatamente.
+fetchAPI(`${API}/categories`)
+    .then(Response => Response.json())
+    .then(response => {for(obj of response){
+            const newCategory = document.createElement('p')
+            newCategory.innerText = obj.name
+            navCAT.appendChild(newCategory)
+            console.log(obj)
+    }})
+    .catch(error => console.log(error))

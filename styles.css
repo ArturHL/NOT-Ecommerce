@@ -38,5 +38,13 @@ header div div{
 
 /* NAV CAT */
 .categories{
-    height: 20px;
+    height: 30px;
+    overflow: auto;
+    display: flex;
+    background-color: var(--medium-color);
+}
+.categories p{
+    padding: 5px;
+    border-right: 1px #e4f5ff solid;
+    width: auto;
 }
