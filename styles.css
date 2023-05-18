@@ -2,7 +2,7 @@
     font-family: 'Titillium Web', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box !important;
     color: var(--white-color);
 }
 body{
@@ -42,9 +42,54 @@ header div div{
     overflow: auto;
     display: flex;
     background-color: var(--medium-color);
+    align-items: center;
 }
 .categories p{
-    padding: 5px;
-    border-right: 1px #e4f5ff solid;
+    border-right: 1px rgba(255, 255, 255, .5) solid;
     width: auto;
+    height: 20px;
+    font-size: 15px;
+    text-align: center;
+    padding: 0 5px 0 5px;
+}
+/* Main */
+h2{
+    text-align: center;
+    padding-top: 10px;
+}
+.main{
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.main  > div{
+    background-color: var(--black-color);
+    border-radius: 10px;
+    padding: 10px 10px 20px 10px;
+    width: 90%;
+    height: auto;
+    margin: 5px;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.main div img{
+    width: 200px;
+    margin-bottom: 20px;
+}
+.main div .productInfo{
+    display: flex;
+    border-bottom: 1px var(--main-color) solid;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+.main div .productInfo .productPrice{
+    color: rgb(0, 207, 0);
+    margin-left: 20px;
 }

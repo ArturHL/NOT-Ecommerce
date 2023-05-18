@@ -85,8 +85,39 @@ fetchAPI(`${API}/categories`)
     .then(Response => Response.json())
     .then(response => {for(obj of response){
             const newCategory = document.createElement('p')
-            newCategory.innerText = obj.name
+            const nombreCAT = `${obj.name.slice(0,1).toUpperCase()}${obj.name.slice(1)}`
+            newCategory.innerText = nombreCAT
             navCAT.appendChild(newCategory)
-            console.log(obj)
+    }})
+    .catch(error => console.log(error))
+
+// Main Renderizer
+const main = document.querySelector('.main')
+fetchAPI(`${API}/products`)
+    .then(Response => Response.json())
+    .then(response => {for(obj of response){
+        const productContainer = document.createElement("div")
+           productContainer.classList.add("productContainer")
+            const productImg = document.createElement("img")
+                productImg.classList.add("productImg")
+                productImg.src = `${obj.images[0]}`
+            const productInfo = document.createElement("div")
+                productInfo.classList.add("productInfo")
+                const productName = document.createElement("div")
+                    productName.classList.add("productName")
+                    productName.innerText = `${obj.title}`
+                const productPrice = document.createElement("div")
+                    productPrice.classList.add("productPrice")
+                    productPrice.innerText = `${obj.price}`
+            const productDescription = document.createElement("div")
+                productDescription.classList.add("productDescription")
+                productDescription.innerText = `${obj.description}`
+        
+        productInfo.appendChild(productName)
+        productInfo.appendChild(productPrice)
+        productContainer.appendChild(productImg)
+        productContainer.appendChild(productInfo)
+        productContainer.appendChild(productDescription)
+        main.appendChild(productContainer)
     }})
     .catch(error => console.log(error))
