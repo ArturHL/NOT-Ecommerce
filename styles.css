@@ -93,3 +93,18 @@ h2{
     color: rgb(0, 207, 0);
     margin-left: 20px;
 }
+
+/* Pages Selectors */
+.pages-selector{
+    display: flex;
+    border-bottom: 1px var(--main-color) solid;
+    overflow: auto;
+    margin-bottom: 10px;
+}
+.pages-selector div{
+    margin: 10px;
+    background-color: var(--main-color);
+    color: var(--black-color);
+    padding: 2px 8px 2px 8px;
+    border-radius: 5px;
+}
