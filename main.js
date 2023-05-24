@@ -93,92 +93,127 @@ fetchAPI(`${API}/categories`)
     .catch(error => console.log(error))
 
 // Main Render
-var indexF = 10
 const main = document.querySelector('.main')
-fetchAPI(`${API}/products`)
-    .then(Response => Response.json())
-    .then(response => {
-        let indexI = indexF - 10
-        response.forEach((obj, index) => {
-            if(index >= indexI && index <= indexF){
-                const productContainer = document.createElement("div")
-                productContainer.classList.add("productContainer")
-                    const productImg = document.createElement("img")
-                        productImg.classList.add("productImg")
-                        productImg.src = `${obj.images[0]}`
-                    const productInfo = document.createElement("div")
-                        productInfo.classList.add("productInfo")
-                        const productName = document.createElement("div")
-                            productName.classList.add("productName")
-                            productName.innerText = `${obj.title}`
-                        const productPrice = document.createElement("div")
-                            productPrice.classList.add("productPrice")
-                            productPrice.innerText = `${obj.price}`
-                    const productDescription = document.createElement("div")
-                        productDescription.classList.add("productDescription")
-                        productDescription.innerText = `${obj.description}`
-                
-                productInfo.appendChild(productName)
-                productInfo.appendChild(productPrice)
-                productContainer.appendChild(productImg)
-                productContainer.appendChild(productInfo)
-                productContainer.appendChild(productDescription)
-                main.appendChild(productContainer)
-                console.log(`${index} valor impreso`)
-            }
-            else{
-                return
-            }
-        });    
-    })
-    .catch(error => console.log(error))
-function renderProducts(){
-    fetchAPI(`${API}/products`)
-    .then(Response => Response.json())
-    .then(response => {
-        let indexI = indexF - 10
-        response.forEach((obj, index) => {
-            if(index >= indexI && index <= indexF){
-                const productContainer = document.createElement("div")
-                productContainer.classList.add("productContainer")
-                    const productImg = document.createElement("img")
-                        productImg.classList.add("productImg")
-                        productImg.src = `${obj.images[0]}`
-                    const productInfo = document.createElement("div")
-                        productInfo.classList.add("productInfo")
-                        const productName = document.createElement("div")
-                            productName.classList.add("productName")
-                            productName.innerText = `${obj.title}`
-                        const productPrice = document.createElement("div")
-                            productPrice.classList.add("productPrice")
-                            productPrice.innerText = `${obj.price}`
-                    const productDescription = document.createElement("div")
-                        productDescription.classList.add("productDescription")
-                        productDescription.innerText = `${obj.description}`
-                
-                productInfo.appendChild(productName)
-                productInfo.appendChild(productPrice)
-                productContainer.appendChild(productImg)
-                productContainer.appendChild(productInfo)
-                productContainer.appendChild(productDescription)
-                main.appendChild(productContainer)
-                console.log(`${index} valor impreso`)
-            }
-            else{
-                return
-            }
-        });    
-    })
-    .catch(error => console.log(error))
-}
-function resetPage(){
-    let i = 0
+fetchAPI(`${API}/products?offset=0&limit=10`)
+.then(Response => Response.json())
+.then(response => {
+    response.forEach((obj, index) => {
+            const productContainer = document.createElement("div")
+            productContainer.classList.add("productContainer")
+                const productImg = document.createElement("img")
+                    productImg.classList.add("productImg")
+                    productImg.src = `${obj.images[0]}`
+                const productInfo = document.createElement("div")
+                    productInfo.classList.add("productInfo")
+                    const productName = document.createElement("div")
+                        productName.classList.add("productName")
+                        productName.innerText = `${obj.title}`
+                    const productPrice = document.createElement("div")
+                        productPrice.classList.add("productPrice")
+                        productPrice.innerText = `${obj.price}`
+                const productDescription = document.createElement("div")
+                    productDescription.classList.add("productDescription")
+                    productDescription.innerText = `${obj.description}`
+            
+            productInfo.appendChild(productName)
+            productInfo.appendChild(productPrice)
+            productContainer.appendChild(productImg)
+            productContainer.appendChild(productInfo)
+            productContainer.appendChild(productDescription)
+            main.appendChild(productContainer)
+            console.log(`${index} valor impreso a`)}
+    )
+})
+.catch(error => console.log(error))
 
-    while(i <= 10){
-        const container = document.querySelector(".productContainer")
-        container.remove()
-        i += 1
+function renderProducts(Offset){
+    let limit = 10
+    let offset = Offset
+    if (offset > 0){
+            fetchAPI(`${API}/products?offset=${offset}&limit=${limit}`)
+                // .then(Response => console.log(Response))
+                .then(Response => Response.json())
+                .then(response => {
+                    response.forEach((obj, index) => {
+                            const productContainer = document.createElement("div")
+                            productContainer.classList.add("productContainer")
+                                const productImg = document.createElement("img")
+                                    productImg.classList.add("productImg")
+                                    productImg.src = `${obj.images[0]}`
+                                const productInfo = document.createElement("div")
+                                    productInfo.classList.add("productInfo")
+                                    const productName = document.createElement("div")
+                                        productName.classList.add("productName")
+                                        productName.innerText = `${obj.title}`
+                                    const productPrice = document.createElement("div")
+                                        productPrice.classList.add("productPrice")
+                                        productPrice.innerText = `${obj.price}`
+                                const productDescription = document.createElement("div")
+                                    productDescription.classList.add("productDescription")
+                                    productDescription.innerText = `${obj.description}`
+                            
+                            productInfo.appendChild(productName)
+                            productInfo.appendChild(productPrice)
+                            productContainer.appendChild(productImg)
+                            productContainer.appendChild(productInfo)
+                            productContainer.appendChild(productDescription)
+                            main.appendChild(productContainer)
+                            console.log(`${index} valor impreso ${obj.id}`)
+
+                        })
+                })
+                .then(response => {
+                    let i = 0
+                    while( i < 10){
+                        const container = document.querySelector('.productContainer')
+                        container.remove()
+                        i = i + 1
+                    }
+                })
+                .catch(error => console.log(error)) 
+    }else{
+        fetchAPI(`${API}/products?offset=0&limit=${limit}`)
+        .then(Response => Response.json())
+        .then(response => {
+            response.forEach((obj, index) => {
+                    const productContainer = document.createElement("div")
+                    productContainer.classList.add("productContainer")
+                        const productImg = document.createElement("img")
+                            productImg.classList.add("productImg")
+                            productImg.src = `${obj.images[0]}`
+                        const productInfo = document.createElement("div")
+                            productInfo.classList.add("productInfo")
+                            const productName = document.createElement("div")
+                                productName.classList.add("productName")
+                                productName.innerText = `${obj.title}`
+                            const productPrice = document.createElement("div")
+                                productPrice.classList.add("productPrice")
+                                productPrice.innerText = `${obj.price}`
+                        const productDescription = document.createElement("div")
+                            productDescription.classList.add("productDescription")
+                            productDescription.innerText = `${obj.description}`
+                    
+                    productInfo.appendChild(productName)
+                    productInfo.appendChild(productPrice)
+                    productContainer.appendChild(productImg)
+                    productContainer.appendChild(productInfo)
+                    productContainer.appendChild(productDescription)
+                    main.appendChild(productContainer)
+                    console.log(`${index} valor impreso`)})
+        
+        })
+        .then(response => {
+            let i = 0
+            while( i < 10){
+                const container = document.querySelector('.productContainer')
+                container.remove()
+                i = i + 1
+            }
+            
+        })
+        .catch(error => console.log(error)) 
     }
+
 }
 
 //Pages Buttons Render
@@ -196,78 +231,10 @@ fetchAPI(`${API}/products`)
         while(incremento < total){
             const selector = document.createElement("div")
                 selector.innerText = valorContainer.toString()
-                selector.setAttribute("onclick", `renderOtherPage${valorContainer}()`)
+                selector.setAttribute("onclick", `renderProducts(${incremento * 10})`)
             selectorsContainer.appendChild(selector)
             incremento = incremento + 1
             valorContainer = valorContainer + 1
         }
     })
     .catch(error => console.log(error))
-
-// Main Pages Interction
-function renderOtherPage(num){
-    indexF = 10 * num
-    resetPage()
-    renderProducts()
-}
-
-function renderOtherPage1(){
-    renderOtherPage(1)
-}
-function renderOtherPage2(){
-    renderOtherPage(2)
-}
-function renderOtherPage3(){
-    renderOtherPage(3)
-}
-function renderOtherPage4(){
-    renderOtherPage(4)
-}
-function renderOtherPage5(){
-    renderOtherPage(5)
-}
-function renderOtherPage6(){
-    renderOtherPage(6)
-}
-function renderOtherPage7(){
-    renderOtherPage(7)
-}
-function renderOtherPage8(){
-    renderOtherPage(8)
-}
-function renderOtherPage9(){
-    renderOtherPage(9)
-}
-function renderOtherPage10(){
-    renderOtherPage(10)
-}
-function renderOtherPage11(){
-    renderOtherPage(11)
-}
-function renderOtherPage12(){
-    renderOtherPage(12)
-}
-function renderOtherPage13(){
-    renderOtherPage(13)
-}
-function renderOtherPage14(){
-    renderOtherPage(14)
-}
-function renderOtherPage15(){
-    renderOtherPage(15)
-}
-function renderOtherPage15(){
-    renderOtherPage(15)
-}
-function renderOtherPage16(){
-    renderOtherPage(16)
-}
-function renderOtherPage17(){
-    renderOtherPage(17)
-}
-function renderOtherPage18(){
-    renderOtherPage(18)
-}
-function renderOtherPage19(){
-    renderOtherPage(19)
-}
