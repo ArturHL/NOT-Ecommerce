@@ -124,14 +124,14 @@ fetchAPI(`${API}/products?offset=0&limit=10`)
             console.log(`${index} valor impreso a`)}
     )
 })
-.catch(error => console.log(error))
+.catch(error => location.href = './404.html')
 
 function renderProducts(Offset){
     let limit = 10
     let offset = Offset
     if (offset > 0){
             fetchAPI(`${API}/products?offset=${offset}&limit=${limit}`)
-                // .then(Response => console.log(Response))
+                .then(Response => console.log(Response))
                 .then(Response => Response.json())
                 .then(response => {
                     response.forEach((obj, index) => {
@@ -170,7 +170,7 @@ function renderProducts(Offset){
                         i = i + 1
                     }
                 })
-                .catch(error => console.log(error)) 
+                .catch(error => location.href = './404.html') 
     }else{
         fetchAPI(`${API}/products?offset=0&limit=${limit}`)
         .then(Response => Response.json())
@@ -217,7 +217,7 @@ function renderProducts(Offset){
 }
 
 //Pages Buttons Render
-fetchAPI(`${API}/products`)
+fetchAPI(`${API}/produts`)
     .then(response => response.json())
     .then(response => {
         var total = 0
@@ -237,4 +237,8 @@ fetchAPI(`${API}/products`)
             valorContainer = valorContainer + 1
         }
     })
-    .catch(error => console.log(error))
+    .catch(error => location.href = './404.html')
+
+
+// Footer
+const footer = document.querySelector('')
