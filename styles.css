@@ -2,7 +2,7 @@
     font-family: 'Titillium Web', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box !important;
+    box-sizing: border-box;
     color: var(--white-color);
 }
 body{
@@ -63,6 +63,7 @@ h2{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 .main  > div{
     background-color: var(--black-color);
@@ -107,4 +108,26 @@ h2{
     color: var(--black-color);
     padding: 2px 8px 2px 8px;
     border-radius: 5px;
+}
+
+/* Footer */
+.footer{
+    z-index: 2;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+.footer div{
+    text-align: center;
+    margin-top: 20px;
+    
+}
+.footer div a{
+    text-decoration: none;
+}
+.footer div a:hover{
+    text-decoration: underline;
 }

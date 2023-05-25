@@ -237,10 +237,3 @@ fetchAPI(`${API}/products`)
         }
     })
     .catch(error => location.href = "./404.html")
-
-
-// Footer
-const footer = document.querySelector('.footer')
-    footer.innerHTML = `
-    
-    `
