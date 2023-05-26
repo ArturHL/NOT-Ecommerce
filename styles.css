@@ -35,6 +35,12 @@ header div{
 header div div{
     margin: 5px;
 }
+.login{
+    text-decoration: none;
+}
+.login:hover{
+    text-decoration: underline;
+}
 
 /* NAV CAT */
 .categories{

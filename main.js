@@ -73,8 +73,11 @@ const header = document.querySelector('.header')
 const logo = document.createElement('h1')
     logo.innerText = 'NOT'
 const navbar = document.createElement('div')
-const logIN = document.createElement('div')
+const logIN = document.createElement('a')
     logIN.innerText = 'Log In'
+    logIN.classList.add('login')
+    logIN.setAttribute('href', './login.html')
+
 
 header.appendChild(logo)
 header.appendChild(logIN)
