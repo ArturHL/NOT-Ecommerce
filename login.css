@@ -34,6 +34,10 @@ h1{
     font-weight: 700;
     margin-top: 20px;
 }
+.login-card section{
+    display: flex;
+    flex-direction: column;
+}
 .login-card div a{
     text-decoration: none;
 }

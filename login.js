@@ -45,11 +45,16 @@ async function matchUser(){
     for(obj of users){
         if(obj.email == usrValue && obj.password == passvalue){
             console.log("Match")
-            console.log(obj)
+            sessionStorage.setItem('email', `${obj.email}`)
+            sessionStorage.setItem('password', `${obj.password}`)
+            sessionStorage.setItem('name', `${obj.name}`)
+            sessionStorage.setItem('role', `${obj.role}`)
+            location.href = './index.html'
             break
         }else{
             alert("Tu email o tu contraseña esta incorrecta, porfavor reintentalo.")
-            return
+            break
         }
     }
 }
+
