@@ -8,6 +8,9 @@
 body{
     background-color: var(--background-color);
 }
+.inactive{
+    display: none;
+}
 /* Variables */
 :root{
     --background-color: #094f6e;
@@ -136,4 +139,37 @@ h2{
 }
 .footer div a:hover{
     text-decoration: underline;
+}
+
+/* Usr Menu */
+.showUsrMenu{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: var(--white-color);
+    z-index: 2;
+    width: 80%;
+}
+.showUsrMenu .head{
+    background-color: var(--background-color);
+    padding: 15px;
+}
+.showUsrMenu .head div{
+    margin: 10px;
+}
+.showUsrMenu .actions{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+.showUsrMenu .actions a{
+    color: var(--black-color);
+    text-decoration: none;
+    margin: 10px;
+}
+.showUsrMenu .actions div{
+    color: var(--black-color);
+    margin-top: 30px;
+    border-top: 1px solid var(--black-color);
+    padding-top: 10px;
 }
