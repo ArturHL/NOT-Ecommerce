@@ -51,10 +51,7 @@ async function matchUser(){
             sessionStorage.setItem('role', `${obj.role}`)
             location.href = './index.html'
             break
-        }else{
-            alert("Tu email o tu contraseña esta incorrecta, porfavor reintentalo.")
-            break
         }
     }
+    console.log(users)
 }
-

@@ -4,29 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="./createUsr.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,200&display=swap" rel="stylesheet">
-    <title>Log In</title>
+    <title>Crea tu NOT-Usuario</title>
 </head>
 <body>
     <h1>NOT-ECOMMERCE</h1>
     <section class="login-card">
         <div>
-            Ingresa tu Usuario y Contraseña
+            Completa el Formulario
         </div>
         <section>
+            <input placeholder="  Pepillo el Grillo" id="name" type="text"><label for="">Nombre</label>
             <input placeholder="  email@example.com" id="user" type="text"><label for="">E-Mail</label>
             <input placeholder="  *********************" id="password" type="text"><label for="">Contraseña</label>
         </section>
-        <button id="btnLogIn">Log In</button>
-        <div>
-            <a class="createUsr" href="./createUsr.html">No tienes Usuario? Crea uno</a>
-        </div>
+        <button id="newUsr">Crear</button>
     </section>
-    <img class="img" src="./img/ajolote.png" alt="Animalitos">
-    <script src="./main.js"></script>
-    <script src="./login.js"></script>
+    <script src="./createUsr.js"></script>
 </body>
 </html>
