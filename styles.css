@@ -11,6 +11,13 @@ body{
 .inactive{
     display: none;
 }
+.backgroundMenu{
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
 /* Variables */
 :root{
     --background-color: #094f6e;
@@ -143,11 +150,11 @@ h2{
 
 /* Usr Menu */
 .showUsrMenu{
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     background-color: var(--white-color);
-    z-index: 2;
+    z-index: 3;
     width: 80%;
 }
 .showUsrMenu .head{
@@ -172,4 +179,58 @@ h2{
     margin-top: 30px;
     border-top: 1px solid var(--black-color);
     padding-top: 10px;
+}
+
+/* Cart */
+
+.cart{
+    position: fixed;
+    z-index: 1;
+    right: 20px;
+    bottom: 20px;
+    background-color: var(--white-color);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    padding-right: 5px;
+}
+.cart img{
+    width: 30px;
+    height: 30px;
+    align-self: center;
+}
+.cart .cart-count{
+    position: absolute;
+    color: var(--background-color);
+
+}
+
+/* Cart Menu */
+.cart-Menu{
+    background-color: var(--white-color);
+    position: fixed;
+    bottom: 100px;
+    right: 10px;
+    height: 300px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: start;
+}
+.cart-Menu h4{
+    color: var(--black-color);
+    font-size: var(--titles);
+    border-bottom: var(--black-color) 1px solid;
+    text-align: start;
+}
+.cart-Menu .contenido{
+    color: var(--medium-color);
+    margin-top: 50px;
+    width: 50%;
+    text-align: center;
+    align-self: center;
+    padding-right: 10px;
 }
