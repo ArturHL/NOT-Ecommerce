@@ -9,7 +9,7 @@ body{
     background-color: var(--background-color);
 }
 .inactive{
-    display: none;
+    display: none !important;
 }
 .backgroundMenu{
     background-color: rgba(0, 0, 0, .5);
@@ -211,9 +211,9 @@ h2{
 .cart-Menu{
     background-color: var(--white-color);
     position: fixed;
-    bottom: 100px;
+    bottom: 90px;
     right: 10px;
-    height: 300px;
+    height: 320px;
     padding: 10px;
     display: flex;
     flex-direction: column;

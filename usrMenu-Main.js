@@ -11,9 +11,9 @@ showMenu.innerHTML =`
             </div>
         </div>
         <div class="actions">
-            <a href="#">Editar Perfil</a>
-            <a href="#">Crear Categoria</a>
-            <a href="#">Crear Producto</a>
+            <a href="./utilities.html">Editar Perfil</a>
+            <a href="./utilities.html">Crear Categoria</a>
+            <a href="./utilities.html">Crear Producto</a>
             <div id="logOut">Log Out</div>
         </div>
 `
@@ -37,5 +37,13 @@ function toggleMenu(){
 
 // Create Product
 
-// Log Out
 
+// Log Out
+const outSession = document.querySelector('#logOut')
+
+outSession.addEventListener('click', logOut)
+
+function logOut(){
+    sessionStorage.clear()
+    location.reload()
+}

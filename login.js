@@ -49,6 +49,7 @@ async function matchUser(){
             sessionStorage.setItem('password', `${obj.password}`)
             sessionStorage.setItem('name', `${obj.name}`)
             sessionStorage.setItem('role', `${obj.role}`)
+            sessionStorage.setItem('avatar', `${obj.avatar}`)
             location.href = './index.html'
             break
         }
