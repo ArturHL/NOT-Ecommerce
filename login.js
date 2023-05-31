@@ -50,6 +50,7 @@ async function matchUser(){
             sessionStorage.setItem('name', `${obj.name}`)
             sessionStorage.setItem('role', `${obj.role}`)
             sessionStorage.setItem('avatar', `${obj.avatar}`)
+            sessionStorage.setItem('creationAt', `${obj.creationAt}`)
             location.href = './index.html'
             break
         }

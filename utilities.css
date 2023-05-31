@@ -16,6 +16,9 @@ img{
     width: 20px;
     height: 20px;
 }
+.inactive{
+    display: none;
+}
 /* Variables */
 :root{
     --background-color: #094f6e;
@@ -76,7 +79,8 @@ header div:first-child{
     display: flex;
     align-items: center;
     justify-content: left;
-    margin: 20px 0 10px 50px;
+    margin: 20px 0 10px 0px;
+    padding-left: 30px;
     width: 100%;
 }
 .userProfile p{
@@ -99,4 +103,66 @@ header div:first-child{
     width: 80px;
     height: 80px;
     border-radius: 10px;
+}
+
+/* main */
+
+main{
+    margin-top: 20px;
+}
+
+/* editProfile */
+
+.menuFunction{
+    position: fixed;
+    top: calc(50% - 150px);
+    width: 300px;
+    height: 300px;
+    left: calc(50% - 150px);
+    background-color: var(--white-color);
+    border: 1px solid var(--main-color);
+}
+.menuFunction h4{
+    background-color: var(--black-color);
+    padding: 10px;
+    position: relative;
+}
+.menuFunction h4 span img{
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 32px;
+    height: 32px;
+}
+.menuFunction ul li {
+    color: var(--black-color); 
+    list-style: none;
+    padding: 10px 0 0 10px;
+}
+.menuFunction ul li span{
+    color: var(--black-color);
+    font-size: 10px;
+    opacity: 0.6;
+}
+.menuFunction-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.menuFunction-form input{
+    color: var(--black-color);
+    border: none;
+    border-bottom: 1px solid var(--black-color);
+    padding: 3px;
+    margin-right: 10px;
+    background-color: transparent;
+    outline: 0;
+}
+.menuFunction-form button{
+    border: 1px solid var(--black-color);
+    border-radius: 5px;
+    color: var(--black-color);
+    background-color: transparent;
+    padding: 0 10px 0 10px;
 }

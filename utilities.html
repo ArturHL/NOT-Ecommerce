@@ -13,31 +13,39 @@
 <body>
     <header>
         <div>
-            NOT-Ecommerce
+            NOT-Ecommerce 
         </div>
     </header>
     <div class="userProfile"></div>
     <div class="nav">
-        <div class="editProfile">
+        <div  onclick="displayMenu('profile')" class="editProfile">
             <img src="./img/edit.png" alt="">
             <p>Editar Perfil</p>
         </div>
-        <div class="Create Category">
+        <div onclick="displayMenu('category')" class="CreateCategory">
             <img src="./img/añadir.png" alt="">
             <p>Crear Categoria</p>
         </div>
-        <div class="Create Product">
+        <div onclick="displayMenu('product')" class="CreateProduct">
             <img src="./img/newPrd.png" alt="">
             <p>Crear Producto</p>
         </div>
     </div>
+    <section class="menuFunction inactive">
+        <div class="menuFunction-info">
+
+        </div>
+        <div class="menuFunction-form">
+
+        </div>
+    </section>
     <main>
         <div class="profileData">
             <h4>
                 Mi Perfil
             </h4>
-            <div>
-                <p></p>
+            <div class="profile-Data">
+
             </div>
         </div>
         <div class="myCategory">
