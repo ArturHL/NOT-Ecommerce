@@ -115,9 +115,9 @@ main{
 
 .menuFunction{
     position: fixed;
-    top: calc(50% - 150px);
+    top: 20%;
     width: 300px;
-    height: 300px;
+    height: auto;
     left: calc(50% - 150px);
     background-color: var(--white-color);
     border: 1px solid var(--main-color);
@@ -158,11 +158,44 @@ main{
     margin-right: 10px;
     background-color: transparent;
     outline: 0;
+    margin-bottom: 40px;
 }
 .menuFunction-form button{
     border: 1px solid var(--black-color);
     border-radius: 5px;
-    color: var(--black-color);
-    background-color: transparent;
+    color: var(--white-color);
+    background-color: var(--black-color);
     padding: 0 10px 0 10px;
+    margin-bottom: 40px;
+}
+
+/* Category Menu */
+.formCat{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-top: 30px;
+    padding-right: 10px;
+}
+
+.formCat li input{
+    color: var(--black-color);
+    border: none;
+    border-bottom: 1px solid var(--black-color);
+    padding: 3px;
+    margin-right: 10px;
+    background-color: transparent;
+    outline: 0;
+    width: 185px;
+}
+.createCat{
+    position: relative;
+    right: -225px;
+    top: 16px;
+    border: 1px solid var(--black-color);
+    border-radius: 5px;
+    color: var(--white-color);
+    background-color: var(--black-color);
+    padding: 3px 13px 3px 13px;
+    margin-bottom: 50px;
 }

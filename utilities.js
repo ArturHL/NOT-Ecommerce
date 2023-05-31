@@ -1,3 +1,13 @@
+//Relocation Main
+const topTitle = document.querySelector('.titleP')
+
+topTitle.addEventListener('click', relocateMain)
+
+function relocateMain(){
+    location.href = './index.html'
+}
+
+// Render Profile
 const profileContainer = document.querySelector('.userProfile')
 
 profileContainer.innerHTML = `
@@ -25,9 +35,12 @@ const newCategory = document.querySelector('CreateCategory')
 const newProduct = document.querySelector('CreateProduct')
 const menu = document.querySelector('.menuFunction')
 
+// Display Menu Utilities
+
 function displayMenu(display){
     const container = document.querySelector('.menuFunction-info')
     menu.classList.toggle('inactive')
+    // Profile
     if(display == 'profile'){
         container.innerHTML = `
         <h4>Editar Perfil <span onclick="displayMenu()"><img src="./img/close.png" alt=""></span></h4>
@@ -39,35 +52,73 @@ function displayMenu(display){
         </ul>
         `
     }
+    // Create Category
     if(display == 'category'){
         //{
         //    "id": 1,
         //    "name": "Clothes",
         //    "image": "https://api.lorem.space/image/fashion?w=640&h=480&r=4278"
         //}
+
         container.innerHTML = `
         <h4>Crear Categoria <span onclick="displayMenu()"><img src="./img/close.png" alt=""></span></h4>
-        <ul class="menuUl">
-            <li onclick="editName()">Nombre: ${sessionStorage.getItem('name')} <span>Editar</span></li>
-            <li onclick="editEmail()">E-mail: ${sessionStorage.getItem('email')} <span>Editar</span></li>
-            <li onclick="editPassword()">Contraseña: ${sessionStorage.getItem('password')} <span>Editar</span></li>
-            <li onclick="editAvatar()">Avatar: ${sessionStorage.getItem('avatar')} <span>Editar</span></li>
+        <ul class='formCat'>
+            <li>
+                Nombre* <input type="text" name="" id="nameCategory" placeholder=" Nombre de la Categoria">
+            </li>
+            <li>
+                URL <input type="text" name="" id="urlCategory" placeholder=" URL de Imagen">
+            </li>
         </ul>
+        <button onclick="createCategory()" class="createCat">Crear</button>
         `
+
+        const form = document.querySelector('.menuFunction-form')
+        form.innerHTML = ''
     }
+    // Create Product
     if(display == 'product'){
+        // {
+        //     "id": 4,
+        //     "title": "Handmade Fresh Table",
+        //     "price": 687,
+        //     "description": "Andy shoes are designed to keeping in...",
+        //     "category": {
+        //       "id": 5,
+        //       "name": "Others",
+        //       "image": "https://placeimg.com/640/480/any?r=0.591926261873231"
+        //     },
+        //     "images": [
+        //       "https://placeimg.com/640/480/any?r=0.9178516507833767",
+        //       "https://placeimg.com/640/480/any?r=0.9300320592588625",
+        //       "https://placeimg.com/640/480/any?r=0.8807778235430017"
+        //     ]
+        // }
         container.innerHTML = `
-        <h4> Crear Producto <span onclick="displayMenu()"><img src="./img/close.png" alt=""></span></h4>
-        <ul class="menuUl">
-            <li onclick="editName()">Nombre: ${sessionStorage.getItem('name')} <span>Editar</span></li>
-            <li onclick="editEmail()">E-mail: ${sessionStorage.getItem('email')} <span>Editar</span></li>
-            <li onclick="editPassword()">Contraseña: ${sessionStorage.getItem('password')} <span>Editar</span></li>
-            <li onclick="editAvatar()">Avatar: ${sessionStorage.getItem('avatar')} <span>Editar</span></li>
+        <h4>Crear Producto <span onclick="displayMenu()"><img src="./img/close.png" alt=""></span></h4>
+        <ul class='formCat'>
+            <li>
+                Titulo* <input type="text" name="" id="nameCategory" placeholder=" Nombre del Producto">
+            </li>
+            <li>
+                URL <input type="text" name="" id="urlCategory" placeholder=" URL de Imagen">
+            </li>
+            <li>
+            Precio <input type="text" name="" id="urlCategory" placeholder=" $$$">
+            </li>
+            <li>
+                Categoria <input type="text" name="" id="urlCategory" placeholder=" A que categoria pertenece?">
+            </li>
+            <li>
+                Descripcion <input type="text" name="" id="descriptionProduct" placeholder=" ....">
+            </li>
         </ul>
+        <button onclick="createProduct()" class="createCat">Crear</button>
         `
     }
 
 }
+// Edit Profile
 const container = document.querySelector('.menuFunction-form')
 function editName(){
     container.innerHTML = `
@@ -88,4 +139,16 @@ function editAvatar(){
     container.innerHTML = `
     <input type="text" placeholder="New URL">
     <button>Save</button>`
+}
+
+
+// Create Category
+
+function createCategory(){
+    
+}
+// Create Products
+
+function createProduct(){
+    
 }
