@@ -59,18 +59,23 @@ fetchAPI(`${API}/products?offset=0&limit=10`)
                         productName.innerText = `${obj.title}`
                     const productPrice = document.createElement("div")
                         productPrice.classList.add("productPrice")
-                        productPrice.innerText = `${obj.price}`
+                        productPrice.innerText = `$${obj.price}`
                 const productDescription = document.createElement("div")
                     productDescription.classList.add("productDescription")
                     productDescription.innerText = `${obj.description}`
+                const addCart = document.createElement("img")
+                    addCart.setAttribute(`onclick`, `add(${obj.id})`)
+                    addCart.classList.add("addCart")
+                    addCart.src = './img/addCart.png'
             
             productInfo.appendChild(productName)
             productInfo.appendChild(productPrice)
             productContainer.appendChild(productImg)
             productContainer.appendChild(productInfo)
             productContainer.appendChild(productDescription)
+            productContainer.appendChild(addCart)
             main.appendChild(productContainer)
-            console.log(`${index} valor impreso a`)}
+        }
     )
 })
 .catch(error => location.href = './404.html')
@@ -95,16 +100,21 @@ function renderProducts(Offset){
                                         productName.innerText = `${obj.title}`
                                     const productPrice = document.createElement("div")
                                         productPrice.classList.add("productPrice")
-                                        productPrice.innerText = `${obj.price}`
+                                        productPrice.innerText = `$${obj.price}`
                                 const productDescription = document.createElement("div")
                                     productDescription.classList.add("productDescription")
                                     productDescription.innerText = `${obj.description}`
+                                const addCart = document.createElement("img")
+                                    addCart.setAttribute(`onclick`, `add(${obj.id})`)
+                                    addCart.classList.add("addCart")
+                                    addCart.src = './img/addCart.png'
                             
                             productInfo.appendChild(productName)
                             productInfo.appendChild(productPrice)
                             productContainer.appendChild(productImg)
                             productContainer.appendChild(productInfo)
                             productContainer.appendChild(productDescription)
+                            productContainer.appendChild(addCart)
                             main.appendChild(productContainer)
                             console.log(`${index} valor impreso ${obj.id}`)
 
@@ -136,16 +146,22 @@ function renderProducts(Offset){
                                 productName.innerText = `${obj.title}`
                             const productPrice = document.createElement("div")
                                 productPrice.classList.add("productPrice")
-                                productPrice.innerText = `${obj.price}`
+                                productPrice.innerText = `$${obj.price}`
                         const productDescription = document.createElement("div")
                             productDescription.classList.add("productDescription")
                             productDescription.innerText = `${obj.description}`
+                        const addCart = document.createElement("img")
+                            addCart.setAttribute(`onclick`, `add(${obj.id})`)
+                            addCart.classList.add("addCart")
+                            addCart.src = './img/addCart.png'
+                        
                     
                     productInfo.appendChild(productName)
                     productInfo.appendChild(productPrice)
                     productContainer.appendChild(productImg)
                     productContainer.appendChild(productInfo)
                     productContainer.appendChild(productDescription)
+                    productContainer.appendChild(addCart)
                     main.appendChild(productContainer)
                     console.log(`${index} valor impreso`)})
         

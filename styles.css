@@ -110,6 +110,11 @@ h2{
     color: rgb(0, 207, 0);
     margin-left: 20px;
 }
+.main div .addCart{
+    width: 40px;
+    padding-top: 10px;
+    margin-bottom: 0;
+}
 
 /* Pages Selectors */
 .pages-selector{
@@ -214,6 +219,7 @@ h2{
     bottom: 90px;
     right: 10px;
     height: 320px;
+    width: 300px;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -228,9 +234,34 @@ h2{
 }
 .cart-Menu .contenido{
     color: var(--medium-color);
-    margin-top: 50px;
-    width: 50%;
+    width: 100%;
     text-align: center;
     align-self: center;
-    padding-right: 10px;
+    overflow: auto;
+}
+.cart-Menu .contenidoT{
+    color: var(--medium-color);
+    width: 100%;
+    text-align: center;
+    align-self: center;
+    margin-top: 50px;
+    padding: 0 50px 0 50px;
+}
+.cart-Menu .contenido .pCartContainer{
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: space-around;
+}
+.cart-Menu .contenido .pCartContainer img{
+    width: 40px;
+    height: 40px;
+}
+.cart-Menu .contenido .pCartContainer img:last-child{
+    width: 20px;
+    height: 20px;
+}
+.cart-Menu .contenido .pCartContainer div p{
+    color: var(--black-color);
 }
