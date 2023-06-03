@@ -14,12 +14,16 @@ function toggleCart(){
 }
 
 // Render Main CartMenu
-
-if(sessionStorage.getItem('name') !== undefined && sessionStorage.getItem('name') && cartProducts !== []){
-    contenidoT.innerText = 'Agrega Productos a tu carrito'
-}else{
-    contenidoT.innerText = 'Inicia Sesion para usar el carrito'
+function principalTextCart(){
+    if(sessionStorage.getItem('name') !== undefined && sessionStorage.getItem('name') && cartProducts !== []){
+        contenidoT.innerText = 'Agrega Productos a tu carrito'
+    }else{
+       contenidoT.innerText = 'Inicia Sesion para usar el carrito'
+    }
 }
+principalTextCart()
+
+
 
 let idProductInCart = 0
 function add(id){
@@ -56,15 +60,26 @@ function add(id){
         })
 }
 
-const remove = document.querySelector('.removeProductCart')
-
 function removeP(id){
     const ContainerProductCart = document.querySelector(`#p${id}`)
     ContainerProductCart.remove()
-    // Falta remover dinamicamente el producto del array de id's
-    //for(obj of cartProducts){
-    //    if(obj[1] == id){
-    //        cartProducts.splice()
-    //    }
-    //}
+    cartProducts.forEach((obj, index)=>{
+        if(obj[1] == id){
+
+            cartProducts.splice(index, 1)
+            console.log(`objeto ${id} eliminado`)
+
+
+            const cartCount = document.querySelector('.cart-count')
+            numberOfProducts = cartProducts.length
+            if (numberOfProducts == 0){
+                cartCount.innerText = ''
+                if(!cartProducts !== []){
+                    contenidoT.classList.remove('inactive')
+                }
+            }else{
+                cartCount.innerText = numberOfProducts
+            }
+        }
+    })
 }
