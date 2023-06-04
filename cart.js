@@ -2,6 +2,7 @@ const cart = document.querySelector('.cart')
 const cartMenu = document.querySelector('.cart-Menu')
 const contenido = document.querySelector('.contenido')
 const contenidoT = document.querySelector('.contenidoT')
+const bntBuy = document.querySelector('.buy')
 const cartProducts = []
 let numberOfProducts = 0
 
@@ -24,40 +25,46 @@ function principalTextCart(){
 principalTextCart()
 
 
-
+// Add & Remove Products ShoppingCart
 let idProductInCart = 0
 function add(id){
-    fetchAPI(`${API}/products`)
-        .then(Response => Response.json())
-        .then(res => {
-            // Render Product on MainMenu
-            for(obj of res){
-                if(obj.id == id){
-                    contenido.insertAdjacentHTML('beforeend', `
-                    <div class="pCartContainer" id="p${idProductInCart}">
-                        <img src="${obj.images[0]}" alt="Img">
-                        <div>
-                            <p>${obj.title}</p>
-                            <p>$${obj.price}</p>
+    if(sessionStorage.getItem('name') !== undefined && sessionStorage.getItem('name')){
+        fetchAPI(`${API}/products`)
+            .then(Response => Response.json())
+            .then(res => {
+                // Render Product on MainMenu
+                for(obj of res){
+                    if(obj.id == id){
+                        contenido.insertAdjacentHTML('beforeend', `
+                        <div class="pCartContainer" id="p${idProductInCart}">
+                            <img src="${obj.images[0]}" alt="Img">
+                            <div>
+                                <p>${obj.title}</p>
+                                <p>$${obj.price}</p>
+                            </div>
+                            <img onclick="removeP(${idProductInCart})" class="removeProductCart" src="./img/x.png" alt="Img">
                         </div>
-                        <img onclick="removeP(${idProductInCart})" class="removeProductCart" src="./img/x.png" alt="Img">
-                    </div>
-                    `) 
-                    cartProducts.push([obj.id, idProductInCart])
-                    idProductInCart = idProductInCart + 1
-                    break
+                        `) 
+                        cartProducts.push([obj.id, idProductInCart])
+                        idProductInCart = idProductInCart + 1
+                        break
+                    }
                 }
-            }
-            // Inactive Initial Text
-            if(cartProducts !== []){
-                contenidoT.classList.add('inactive')
-            }
+                // Inactive Initial Text
+                if(cartProducts !== []){
+                    contenidoT.classList.add('inactive')
+                    bntBuy.classList.remove('inactive')
+                }
 
-            //CartCount
-            const cartCount = document.querySelector('.cart-count')
-            numberOfProducts = cartProducts.length
-            cartCount.innerText = numberOfProducts
-        })
+                //CartCount
+                const cartCount = document.querySelector('.cart-count')
+                numberOfProducts = cartProducts.length
+                cartCount.innerText = numberOfProducts
+            })
+    }else{
+        alert('Inicia Sesion para usar el carrito')
+    }
+    
 }
 
 function removeP(id){
@@ -76,10 +83,20 @@ function removeP(id){
                 cartCount.innerText = ''
                 if(!cartProducts !== []){
                     contenidoT.classList.remove('inactive')
+                    bntBuy.classList.add('inactive')
                 }
             }else{
                 cartCount.innerText = numberOfProducts
             }
         }
     })
+}
+
+// Buy Cart
+const buy = document.querySelector('#buyCart')
+
+buy.addEventListener('click', payPage)
+
+function payPage(){
+    location.href = './pay.html'
 }

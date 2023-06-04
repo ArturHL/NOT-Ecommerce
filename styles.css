@@ -238,6 +238,9 @@ h2{
     text-align: center;
     align-self: center;
     overflow: auto;
+    height: 238px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--black-color);
 }
 .cart-Menu .contenidoT{
     color: var(--medium-color);
@@ -252,7 +255,8 @@ h2{
     width: 100%;
     margin-top: 10px;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding-right: 10px;
 }
 .cart-Menu .contenido .pCartContainer img{
     width: 40px;
@@ -264,4 +268,13 @@ h2{
 }
 .cart-Menu .contenido .pCartContainer div p{
     color: var(--black-color);
+}
+.cart-Menu .buy button{
+    background-color: var(--black-color);
+    color: var(--white-color);
+    border: none;
+    padding: 5px;
+    position: absolute;
+    bottom: 5px;
+    right: calc(50% - 29px);
 }

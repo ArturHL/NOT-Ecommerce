@@ -1,0 +1,84 @@
+*{
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--black-color);
+}
+body{
+    background-color: var(--white-color);
+}
+.inactive{
+    display: none !important;
+}
+.backgroundMenu{
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+img{
+    width: 50px;
+}
+/* Variables */
+:root{
+    --background-color: #094f6e;
+    --main-color: #96c7d5;
+    --black-color: #022534;
+    --medium-color: #2d7a9c;
+    --white-color: #e4f5ff;
+    --titles: 20px;
+    --sub-titles: 15px;
+    --font: 12px;
+}
+
+/* Header */
+
+header{
+    background-color: var(--black-color);
+    text-align: center;
+    padding: 15px;
+}
+header h1{
+    color: var(--white-color);
+}
+
+/* Main */
+section{
+    padding: 10px;
+}
+
+section ul li div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border-bottom: 1px solid var(--black-color);
+}
+section ul li div p:last-child{
+    color: rgb(0, 207, 0);
+    font-weight: 700;
+}
+.total{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 10px;
+    align-items: center;
+}
+#buyNow{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 10px;
+    border: none;
+    height: auto;
+    color: var(--white-color);
+    background-color: var(--black-color);
+    padding: 10px;
+    font-weight: 700;
+    font-size: var(--titles);
+    border-radius: 5px;
+}
