@@ -98,5 +98,6 @@ const buy = document.querySelector('#buyCart')
 buy.addEventListener('click', payPage)
 
 function payPage(){
+    sessionStorage.setItem('cartProducts', JSON.stringify(cartProducts))
     location.href = './pay.html'
 }
