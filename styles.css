@@ -125,8 +125,8 @@ h2{
 }
 .pages-selector div{
     margin: 10px;
-    background-color: var(--main-color);
-    color: var(--black-color);
+    background-color: var(--black-color);
+    color: var(--white-color);
     padding: 2px 8px 2px 8px;
     border-radius: 5px;
 }

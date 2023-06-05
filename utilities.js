@@ -54,12 +54,6 @@ function displayMenu(display){
     }
     // Create Category
     if(display == 'category'){
-        //{
-        //    "id": 1,
-        //    "name": "Clothes",
-        //    "image": "https://api.lorem.space/image/fashion?w=640&h=480&r=4278"
-        //}
-
         container.innerHTML = `
         <h4>Crear Categoria <span onclick="displayMenu()"><img src="./img/close.png" alt=""></span></h4>
         <ul class='formCat'>
@@ -78,36 +72,20 @@ function displayMenu(display){
     }
     // Create Product
     if(display == 'product'){
-        // {
-        //     "id": 4,
-        //     "title": "Handmade Fresh Table",
-        //     "price": 687,
-        //     "description": "Andy shoes are designed to keeping in...",
-        //     "category": {
-        //       "id": 5,
-        //       "name": "Others",
-        //       "image": "https://placeimg.com/640/480/any?r=0.591926261873231"
-        //     },
-        //     "images": [
-        //       "https://placeimg.com/640/480/any?r=0.9178516507833767",
-        //       "https://placeimg.com/640/480/any?r=0.9300320592588625",
-        //       "https://placeimg.com/640/480/any?r=0.8807778235430017"
-        //     ]
-        // }
         container.innerHTML = `
         <h4>Crear Producto <span onclick="displayMenu()"><img src="./img/close.png" alt=""></span></h4>
         <ul class='formCat'>
             <li>
-                Titulo* <input type="text" name="" id="nameCategory" placeholder=" Nombre del Producto">
+                Titulo <input type="text" name="" id="nameProduct" placeholder=" Nombre del Producto">
             </li>
             <li>
-                URL <input type="text" name="" id="urlCategory" placeholder=" URL de Imagen">
+                URL <input type="text" name="" id="urlProduct" placeholder=" URL de Imagen">
             </li>
             <li>
-            Precio <input type="text" name="" id="urlCategory" placeholder=" $$$">
+            Precio <input type="text" name="" id="Price" placeholder=" $$$">
             </li>
             <li>
-                Categoria <input type="text" name="" id="urlCategory" placeholder=" A que categoria pertenece?">
+                Categoria <input type="text" name="" id="pCategory" placeholder=" A que categoria pertenece?">
             </li>
             <li>
                 Descripcion <input type="text" name="" id="descriptionProduct" placeholder=" ....">
@@ -144,11 +122,64 @@ function editAvatar(){
 
 // Create Category
 
-function createCategory(){
-    
+async function createCategory(){
+    // {
+    //    "id": 1,
+    //    "name": "Clothes",
+    //    "image": "https://api.lorem.space/image/fashion?w=640&h=480&r=4278"
+    // }
+    var data = new Object()
+        data.name = document.querySelector('#nameCategory').value
+        data.image = document.querySelector('#urlCategory').value
+        await fetch(
+            "https://api.escuelajs.co/api/v1/categories/",
+            {
+            method: 'POST',
+            mode: 'cors',
+            credentials: 'same-origin',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data),
+            },)
+            .then(Response => Response.json())
+            .then(Response => console.log(Response))
+            .catch(error => console.log(error))
 }
 // Create Products
 
-function createProduct(){
-    
+async function createProduct(){
+    // {
+    //     "id": 4,
+    //     "title": "Handmade Fresh Table",
+    //     "price": 687,
+    //     "description": "Andy shoes are designed to keeping in...",
+    //     "category": {
+    //       "id": 5,
+    //       "name": "Others",
+    //       "image": "https://placeimg.com/640/480/any?r=0.591926261873231"
+    //     },
+    //     "images": [
+    //       "https://placeimg.com/640/480/any?r=0.9178516507833767",
+    //       "https://placeimg.com/640/480/any?r=0.9300320592588625",
+    //       "https://placeimg.com/640/480/any?r=0.8807778235430017"
+    //     ]
+    // }
+
+    var data = new Object()
+    data.title = document.querySelector('#nameProduct').value
+    data.price = document.querySelector('#Price').value
+    data.description = document.querySelector('#descriptionProduct').value
+    data.category = document.querySelector('#pCategory').value // {Tiene que ser un objeto}
+    data.image = document.querySelector('#urlProduct').value
+    await fetch(
+        "https://api.escuelajs.co/api/v1/products/",
+        {
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'same-origin',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data),
+        },)
+        .then(Response => Response.json())
+        .then(Response => console.log(Response))
+        .catch(error => console.log(error))
 }

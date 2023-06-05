@@ -192,7 +192,7 @@ fetchAPI(`${API}/products`)
         var incremento = 0
         var valorContainer = 1
         const selectorsContainer = document.querySelector(".pages-selector")
-        while(incremento < total){
+        while(incremento < total - 1){
             const selector = document.createElement("div")
                 selector.innerText = valorContainer.toString()
                 selector.setAttribute("onclick", `renderProducts(${incremento * 10})`)
